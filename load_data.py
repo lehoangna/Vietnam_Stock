@@ -4,7 +4,6 @@ from google.cloud import bigquery
 
 client = storage.Client.from_service_account_json('vietnamtoken-5dfcd32b407b.json')
 bucket = client.get_bucket('2kna_stock_bucket')
-
 bucket.blob('upload_vnstock/data.csv').upload_from_string(data.to_csv(), 'text/csv')
 # -----------
 

@@ -35,9 +35,8 @@ for symbol in listing_tikers[:20]:
     if((intraday_data_per_symbol['TradingDate'].iloc[-1].strftime('%Y-%m-%d')) == current_date_string):
         intraday_data = pd.concat([intraday_data, intraday_data_per_symbol.tail(1)])
 
-# set field 'TradingDate' to right format
-intraday_data.set_index('Ticker', inplace=True)
-intraday_data['TradingDate'] = intraday_data['TradingDate'].dt.strftime('%Y-%m-%d %H:%M:%S.%f')
+intraday_data.set_index('Ticker', inplace=True) #set fielf 'Ticker' be the index
+intraday_data['TradingDate'] = intraday_data['TradingDate'].dt.strftime('%Y-%m-%d %H:%M:%S.%f') # set field 'TradingDate' to right format
 
 # Load intraday data to GCS
 client = storage.Client.from_service_account_json('vietnamtoken-5dfcd32b407b.json')

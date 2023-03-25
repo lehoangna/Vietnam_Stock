@@ -21,7 +21,7 @@ list_data = {
 }
 data = pd.DataFrame(list_data)
 
-# Get data for each symbol
+# Get data for each symbol from history to now
 for symbol in listing_tikers:
     if(symbol in error_com): continue
     data_per_symbol = vnstock.stock_historical_data(symbol, '2010-01-01', current_date_string)
